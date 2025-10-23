@@ -11,6 +11,7 @@ import { stranger_tune } from './tunes';
 import console_monkey_patch, { getD3Data } from './console-monkey-patch';
 import PlayButtons from './components/PlayButtons'; // Import PlayButtons component
 import logo from './logo.svg'; // Import logo image
+import PreProcessText from './components/PreProcessText'; // Import PreProcessText component
 
 let globalEditor = null;
 
@@ -130,12 +131,8 @@ return (
                     <div>
                         <PlayButtons/>
                     </div>
-                    <div className="col-md-8" style={{ maxHeight: '50vh', overflowY: 'auto' }}>
-                        <label htmlFor="exampleFormControlTextarea1" className="form-label">Text to preprocess:</label>
-                        <textarea className="form-control" rows="15" id="proc" ></textarea>
-                    </div>
-                    <div className="col-md-4">
-                        {/* Buttons moved to PlayButtons component */}
+                    <div>
+                        <PreProcessText/>
                     </div>
                 </div>
                 <div className="row">
@@ -144,6 +141,7 @@ return (
                         <div id="output" />
                     </div>
                     <div className="col-md-4">
+                        <h3>Select Instruments</h3>
                         <div className="form-check">
                             <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onChange={ProcAndPlay} defaultChecked />
                             <label className="form-check-label" htmlFor="flexRadioDefault1">
