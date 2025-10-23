@@ -1,7 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../App.css';
 
 function PlayButtons() {
+    const [volume, setVolume] = useState(50);
+
+    // Function to handle volume change
+    const handleVolumeChange = (event) => {
+        const newVolume = event.target.value;
+        setVolume(newVolume);
+        
+        // Apply volume to audio context if it exists
+        try {
+            const audioContext = window.getAudioContext && window.getAudioContext();
+            if (audioContext && audioContext.destination) {
+                // Set volume (0.0 to 1.0)
+                const volumeValue = newVolume / 100;
+                
+                // You might need to adjust this based on how Strudel handles audio
+                if (window.globalEditor && window.globalEditor.audioContext) {
+                    window.globalEditor.audioContext.destination.gain = volumeValue;
+                }
+            }
+        } catch (error) {
+            console.log('Volume control not available yet');
+        }
+    };
+
     return (
         <div className="music-controls">
             <h4>👽 Media Player Buttons 🛸</h4> {/* Using the emojis for nice appeal UI */}
@@ -19,13 +43,18 @@ function PlayButtons() {
                     ♻️ {/* Preprocess Button using the emoji symbol */}
                 </button>
 
-                <div class="slideContainer">
-                    <input type="range" min="1" max="100" value="1" id="myRange" class="slider"></input>
-                    <label>🔉</label>
+                <div className="slideContainer">
+                    <label htmlFor="myRange">🔉 {volume}%</label>
+                    <input 
+                        type="range" 
+                        min="0" 
+                        max="100" 
+                        value={volume}
+                        onChange={handleVolumeChange}
+                        id="myRange" 
+                        className="slider"
+                    />
                 </div>
-
-
-
             </div>
         </div>
     );

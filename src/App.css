@@ -172,6 +172,25 @@
 
 }
 
+/* Volume Slider Container */
+.slideContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin-top: 15px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  min-width: 120px;
+}
+
+.slideContainer label {
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
 .slider{
 width: 100%;
 height: 20px;
