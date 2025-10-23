@@ -63,6 +63,16 @@ export function ProcessText(match, ...args) {
     return replace
 }
 
+const volumeSlider = document.getElementById('myRange');
+if(volumeSlider){
+    volumeSlider.addEventListener('input', (e) => {
+        const volume = e.target.value/ 100;
+        if (globalEditor && globalEditor.webaudioOutput)
+            globalEditor.webaudioOutput.setVolume(volume);
+    });
+}
+
+
 export default function StrudelDemo() {
 
 const hasRun = useRef(false);
