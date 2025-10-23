@@ -18,6 +18,14 @@ function PlayButtons() {
                 <button id="process" className="music-btn preprocess-btn" title="Preprocess">
                     ♻️ {/* Preprocess Button using the emoji symbol */}
                 </button>
+
+                <div class="slideContainer">
+                    <input type="range" min="1" max="100" value="1" id="myRange" class="slider"></input>
+                    <label>🔉</label>
+                </div>
+
+
+
             </div>
         </div>
     );
