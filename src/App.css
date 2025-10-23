@@ -2,8 +2,9 @@
   text-align: center;
 }
 
+/* logo size */
 .App-logo {
-  height: 15vmin;
+  height: 20vmin;
   pointer-events: none;
 }
 
