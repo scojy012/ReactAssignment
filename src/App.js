@@ -10,6 +10,7 @@ import { registerSoundfonts } from '@strudel/soundfonts';
 import { stranger_tune } from './tunes';
 import console_monkey_patch, { getD3Data } from './console-monkey-patch';
 import PlayButtons from './components/PlayButtons'; // Import PlayButtons component
+import logo from './logo.svg'; // Import logo image
 
 let globalEditor = null;
 
@@ -109,7 +110,10 @@ useEffect(() => {
 
 return (
     <div>
-        <h2>Strudel Demo</h2>
+        <div className="app-header-section">
+            <img src={logo} className="App-logo" alt="logo" />
+            <h2 className="app-title">Strudel</h2>
+        </div>
         <main>
 
             <div className="container-fluid">
