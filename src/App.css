@@ -66,12 +66,13 @@
   margin: 10px;
 }
 
-/* Music button title syling (white, bigger size (2.0), bold) */*/
+/* Music button title syling (white, bigger size (2.0), bold) */
 .music-controls h4 {
   color: rgb(255, 255, 255);
-  font-weight: 800s;
-  text-align: center;
+  font-weight: 800;
   font-size: 2.0rem;
+  text-align: center;
+  margin: 0 0 15px 0;
 }
 
 .btn-group-custom {
@@ -81,42 +82,40 @@
 }
 
 .music-btn {
-  padding: 12px 24px;
+  padding: 8px;
   border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  border-radius: 0;
+  font-weight: normal;
+  text-transform: none;
+  letter-spacing: normal;
   transition: all 0.3s ease;
   cursor: pointer;
-  min-width: 80px;
+  min-width: auto;
   font-size: 2.5rem; /* Increased size for the emoji icons */
 }
 
-/* Play button styling fixed with background*/
+/* Play button styling - clean icon only */
 .music-btn.play-btn {
-  background:fixed ;
+  background: transparent;
 }
 
-/*Hover over the button it will transfrom the background to green */
-/*Added  transform for hovering the button downward (Y- axis 10px*/
+/* Simple hover effect for play button */
 .music-btn.play-btn:hover {
-  background: linear-gradient(135deg, #25af25, #45d756);
-  transform: translateY(10px);
-  box-shadow: 0 6px 20px rgba(60, 221, 103, 0.4);
+  background: transparent;
+  transform: scale(1.1); /* Slightly enlarge on hover */
+  box-shadow: none;
 }
 
-/*Stop button styling fixed with background */
+/* Stop button styling - clean icon only */
 .music-btn.stop-btn {
-  background: fixed;
+  background: transparent;
 }
 
-/*Hover over the button it will transfrom the background to red */
-/*Added  transform for hovering the button downward (Y- axis 10px*/
+/* Simple hover effect for stop button */
 .music-btn.stop-btn:hover {
-  background: linear-gradient(135deg, #d32f2f, #b71c1c);
-  transform: translateY(10px);
-  box-shadow: 0 6px 20px rgba(244, 67, 54, 0.4);
+  background: transparent;
+  transform: scale(1.1); /* Slightly enlarge on hover */
+  box-shadow: none;
 }
 
 .process-controls {
