@@ -65,13 +65,13 @@
   border-radius: 12px;
   margin: 10px;
 }
-
+/* Music button title syling (white, bigger size (2.0), bold) */*/
 .music-controls h4 {
-  color: white;
-  margin: 0 0 10px 0;
-  font-weight: 600;
+  color: rgb(255, 255, 255);
+
+  font-weight: 800s;
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 2.0rem;
 }
 
 .btn-group-custom {
