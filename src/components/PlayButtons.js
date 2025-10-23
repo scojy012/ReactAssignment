@@ -43,7 +43,7 @@ function PlayButtons() {
                     ♻️ {/* Preprocess Button using the emoji symbol */}
                 </button>
 
-                <div className="slideContainer">
+                <div className="slideContainer" title="Adjust Volume">
                     <label htmlFor="myRange">🔉 {volume}%</label>
                     <input 
                         type="range" 
