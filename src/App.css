@@ -36,3 +36,89 @@
     transform: rotate(360deg);
   }
 }
+
+/* Music Button Styling */
+.music-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  margin: 10px 0;
+}
+
+.music-controls h4 {
+  color: white;
+  margin: 0 0 10px 0;
+  font-weight: 600;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.btn-group-custom {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.music-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  min-width: 80px;
+  font-size: 0.9rem;
+}
+
+.music-btn.play-btn {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.music-btn.play-btn:hover {
+  background: linear-gradient(135deg, #45a049, #3d8b40);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.music-btn.stop-btn {
+  background: linear-gradient(135deg, #f44336, #d32f2f);
+  color: white;
+  box-shadow: 0 4px 15px rgba(244, 67, 54, 0.3);
+}
+
+.music-btn.stop-btn:hover {
+  background: linear-gradient(135deg, #d32f2f, #b71c1c);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(244, 67, 54, 0.4);
+}
+
+.process-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.process-btn {
+  padding: 10px 20px;
+  border: 2px solid #667eea;
+  border-radius: 6px;
+  background: transparent;
+  color: #667eea;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.process-btn:hover {
+  background: #667eea;
+  color: white;
+  transform: translateY(-1px);
+}

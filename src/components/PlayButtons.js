@@ -3,12 +3,17 @@ import '../App.css';
 
 function PlayButtons() {
     return (
-        <>
-        <div className="btn-group" role="group" aria-label="Play and Stop Buttons">
-        <button id="play" className="btn btn-outline-primary">Play</button>
-        <button id="stop" className="btn btn-outline-primary">Stop</button>
+        <div className="music-controls">
+            <h4>🎵 Music Controls</h4>
+            <div className="btn-group-custom" role="group" aria-label="Play and Stop Buttons">
+                <button id="play" className="music-btn play-btn">
+                    ▶️ Play
+                </button>
+                <button id="stop" className="music-btn stop-btn">
+                    ⏹️ Stop
+                </button>
+            </div>
         </div>
-        </>
     );
 }
 
