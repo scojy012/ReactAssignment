@@ -57,16 +57,13 @@
   }
 }
 
-/* Music Button Styling */
+/* Music Button Styling  padding around button areas with background gradient (red to blue) and rounded corners */
 .music-controls {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
   padding: 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #eb6969 0%, #508fb9 100%);
+  box-shadow: 0 8px 32px rgba(255, 0, 0, 0.1);
   border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  margin: 10px 0;
+  margin: 10px;
 }
 
 .music-controls h4 {
