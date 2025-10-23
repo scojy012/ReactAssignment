@@ -109,7 +109,7 @@ useEffect(() => {
 
 
 return (
-    <div>
+    <div class="p-3 mb-2 bg-dark text-white"> {/* Dark background for better music controls visibility */}
         <div className="app-header-section">
             <img src={logo} className="App-logo" alt="logo" />
             <h2 className="app-title">Strudel</h2>
