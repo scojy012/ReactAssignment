@@ -36,8 +36,6 @@ export function SetupButtons() {
     )
 }
 
-
-
 export function ProcAndPlay() {
     if (globalEditor != null && globalEditor.repl.state.started == true) {
         console.log(globalEditor)
