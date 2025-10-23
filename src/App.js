@@ -115,9 +115,11 @@ return (
             <h2 className="app-title">Strudel</h2>
         </div>
         <main>
-
             <div className="container-fluid">
                 <div className="row">
+                    <div>
+                        <PlayButtons/>
+                    </div>
                     <div className="col-md-8" style={{ maxHeight: '50vh', overflowY: 'auto' }}>
                         <label htmlFor="exampleFormControlTextarea1" className="form-label">Text to preprocess:</label>
                         <textarea className="form-control" rows="15" id="proc" ></textarea>
@@ -128,7 +130,6 @@ return (
                             <button id="process" className="btn btn-outline-primary">Preprocess</button>
                             <button id="process_play" className="btn btn-outline-primary">Proc & Play</button>
                             <br />
-                            <PlayButtons/>
                         </nav>
                     </div>
                 </div>

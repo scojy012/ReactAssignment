@@ -8,7 +8,7 @@
   pointer-events: none;
 }
 
-/* Header styling for logo and title */
+/* Header placement for logo and title */
 .app-header-section {
   display: flex;
   align-items: center;
@@ -60,7 +60,7 @@
 /* Music Button Styling  padding around button areas with background gradient (red to blue) and rounded corners */
 .music-controls {
   padding: 20px;
-  background: linear-gradient(135deg, #eb6969 0%, #508fb9 100%);
+  background: linear-gradient(135deg, #393434 0%, #508fb9 100%);
   box-shadow: 0 8px 32px rgba(255, 0, 0, 0.1);
   border-radius: 12px;
   margin: 10px;
@@ -93,27 +93,29 @@
   font-size: 0.9rem;
 }
 
+/* Play button styling fixed with background*/
 .music-btn.play-btn {
-  background: linear-gradient(135deg, #4CAF50, #45a049);
-  color: white;
-  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+  background:fixed ;
 }
 
+/*Hover over the button it will transfrom the background to green */
+/*Added  transform for hovering the button downward (Y- axis 10px*/
 .music-btn.play-btn:hover {
-  background: linear-gradient(135deg, #45a049, #3d8b40);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+  background: linear-gradient(135deg, #25af25, #45d756);
+  transform: translateY(10px);
+  box-shadow: 0 6px 20px rgba(60, 221, 103, 0.4);
 }
 
+/*Stop button styling fixed with background */
 .music-btn.stop-btn {
-  background: linear-gradient(135deg, #f44336, #d32f2f);
-  color: white;
-  box-shadow: 0 4px 15px rgba(244, 67, 54, 0.3);
+  background: fixed;
 }
 
+/*Hover over the button it will transfrom the background to red */
+/*Added  transform for hovering the button downward (Y- axis 10px*/
 .music-btn.stop-btn:hover {
   background: linear-gradient(135deg, #d32f2f, #b71c1c);
-  transform: translateY(-2px);
+  transform: translateY(10px);
   box-shadow: 0 6px 20px rgba(244, 67, 54, 0.4);
 }
 
