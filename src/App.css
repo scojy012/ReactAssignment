@@ -72,7 +72,7 @@
   font-weight: 800;
   font-size: 2.0rem;
   text-align: center;
-  margin: 0 0 15px 0;
+  
 }
 
 .btn-group-custom {
@@ -136,8 +136,8 @@
 }
 
 .process-btn:hover {
-  background: #667eea;
-  color: white;
+  background: #ffffff;
+  color: rgb(255, 0, 0);
   transform: translateY(-1px);
 }
 
