@@ -118,6 +118,30 @@
   box-shadow: none;
 }
 
+/* Process & Play button styling - clean icon only */
+.music-btn.process-btn {
+  background: transparent;
+}
+
+/* Simple hover effect for process & play button */
+.music-btn.process-btn:hover {
+  background: transparent;
+  transform: scale(1.1); /* Slightly enlarge on hover */
+  box-shadow: none;
+}
+
+/* Preprocess button styling - clean icon only */
+.music-btn.preprocess-btn {
+  background: transparent;
+}
+
+/* Simple hover effect for preprocess button */
+.music-btn.preprocess-btn:hover {
+  background: transparent;
+  transform: scale(1.1); /* Slightly enlarge on hover */
+  box-shadow: none;
+}
+
 .process-controls {
   display: flex;
   flex-direction: column;

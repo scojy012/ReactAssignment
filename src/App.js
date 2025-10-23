@@ -125,12 +125,7 @@ return (
                         <textarea className="form-control" rows="15" id="proc" ></textarea>
                     </div>
                     <div className="col-md-4">
-
-                        <nav>
-                            <button id="process" className="btn btn-outline-primary">Preprocess</button>
-                            <button id="process_play" className="btn btn-outline-primary">Proc & Play</button>
-                            <br />
-                        </nav>
+                        {/* Buttons moved to PlayButtons component */}
                     </div>
                 </div>
                 <div className="row">
