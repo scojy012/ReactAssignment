@@ -12,6 +12,7 @@ import console_monkey_patch, { getD3Data } from './console-monkey-patch';
 import PlayButtons from './components/PlayButtons'; // Import PlayButtons component
 import logo from './logo.svg'; // Import logo image
 import PreProcessText from './components/PreProcessText'; // Import PreProcessText component
+import Editor from './components/Editor'; // Import Editor component
 
 let globalEditor = null;
 
@@ -134,10 +135,7 @@ return (
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-md-8" style={{ maxHeight: '50vh', overflowY: 'auto' }}>
-                        <div id="editor" />
-                        <div id="output" />
-                    </div>
+                    <Editor/>
                     <div className="col-md-4">
                         <h3>Select Instruments</h3>
                         <div className="form-check">
