@@ -5,6 +5,7 @@ import { ProcAndPlay } from '../App.js'; // Import ProcAndPlay function
 function InstrumentButtons() {
     return (
         <>
+        
         <h3>Select Instruments</h3>
                                 <div className="form-check">
                                     <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onChange={ProcAndPlay} defaultChecked />
