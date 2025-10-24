@@ -127,7 +127,7 @@ return (
         <main>
             <div className="container text-center">
                 <div className= "row">
-                       <div className="col">
+                       <div className="col-6">
                             <PlayButtons/>
                         </div>
                     <div className="col">
@@ -135,12 +135,14 @@ return (
                     </div>
                 </div>
                 <div className = "row">
-                    <div className="col-md-4">
+                    <div>
                         <PreProcessText/>
                     </div>
                 </div>
                 <div className="row">
-                    <Editor/>
+                    <div>
+                        <Editor/>
+                    </div>
                 </div>
             </div>
             <canvas id="roll"></canvas>
