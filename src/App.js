@@ -13,6 +13,7 @@ import PlayButtons from './components/PlayButtons'; // Import PlayButtons compon
 import logo from './logo.svg'; // Import logo image
 import PreProcessText from './components/PreProcessText'; // Import PreProcessText component
 import Editor from './components/Editor'; // Import Editor component
+import InstrumentButtons from './components/InstrumentButtons'; // Import InstrumentButtons component
 
 let globalEditor = null;
 
@@ -117,7 +118,6 @@ useEffect(() => {
 
 }, []);
 
-
 return (
     <div class="p-3 mb-2 bg-dark text-white"> {/* Dark background for better music controls visibility */}
         <div className="app-header-section">
@@ -125,32 +125,22 @@ return (
             <h2 className="app-title">Strudel</h2>
         </div>
         <main>
-            <div className="container-fluid">
-                <div className="row">
-                    <div>
-                        <PlayButtons/>
+            <div className="container text-center">
+                <div className= "row">
+                       <div className="col">
+                            <PlayButtons/>
+                        </div>
+                    <div className="col">
+                        <InstrumentButtons/>
                     </div>
-                    <div>
+                </div>
+                <div className = "row">
+                    <div className="col-md-4">
                         <PreProcessText/>
                     </div>
                 </div>
                 <div className="row">
                     <Editor/>
-                    <div className="col-md-4">
-                        <h3>Select Instruments</h3>
-                        <div className="form-check">
-                            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onChange={ProcAndPlay} defaultChecked />
-                            <label className="form-check-label" htmlFor="flexRadioDefault1">
-                                p1: ON
-                            </label>
-                        </div>
-                        <div className="form-check">
-                            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" onChange={ProcAndPlay} />
-                            <label className="form-check-label" htmlFor="flexRadioDefault2">
-                                p1: HUSH
-                            </label>
-                        </div>
-                    </div>
                 </div>
             </div>
             <canvas id="roll"></canvas>
