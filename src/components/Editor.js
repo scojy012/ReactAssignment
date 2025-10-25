@@ -10,15 +10,14 @@ function Editor() {
 
     return (
         <>
-                    <div className="editor-container">
-
+            <div className="editor-container">
                 <div className= "editor-card-header" id="headingEditor">
                     <button className="btn bg-dark w-100 text-start form-label"
                         type="button"
                         onClick={toggleCollapse}
                         aria-expanded={!EditorCollapsed}
                         aria-controls="collapseEditor">
-                            <h4> Editor & Output 📟⬇️</h4>
+                        <h4> Editor & Output 📟⬇️</h4>
                     </button>
                     </div>
                     <div 
@@ -32,7 +31,7 @@ function Editor() {
                                 </div>
                     </div>
                     </div>
-                    </div>
+            </div>
         </>
     );
 } 
