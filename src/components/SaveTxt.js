@@ -6,17 +6,14 @@ function SaveTxt() {
     const save_function = () => {
         var textToSave = document.getElementById("proc").value; // Get text from textarea
 
-        if (!textToSave) {
-            alert("No text to save!");
-            return;
-        }
-
+    
+    try{
         var data = []; // Initialize an array to hold data
         data.push(textToSave); // Add text to data array
         
         var data_string = JSON.stringify(data); // Convert data array to JSON string
 
-        var file = new Blob([data_string], {type: 'text/plain'}); // Create a Blob from the data
+        var file = new Blob([data_string], {type: 'text'}); // Create a Blob from the data
         
         var anchor = document.createElement("a"); // Create an anchor element
 
@@ -28,6 +25,9 @@ function SaveTxt() {
         
         // Clean up the URL object
         URL.revokeObjectURL(anchor.href);
+    } catch (error) {
+        console.error("Error saving file:", error);
+    }
     };
 
     return (
