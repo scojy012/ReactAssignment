@@ -117,47 +117,37 @@ useEffect(() => {
         Proc()
     }
 
-    let lightmode = localStorage.getItem("lightmode"); // get the current theme mode
-    const themeSwitch = document.getElementById("theme-switch");
+        let lightmode = localStorage.getItem("lightmode");
+        const themeSwitch = document.getElementById("theme-switch");
+        
+        // Enable light mode
+        const enableLightMode = () => {
+            document.body.classList.add("lightmode");
+            localStorage.setItem("lightmode", "active");
+        }
 
-
-    // Enable light mode if previously activated
-    const enableLightMode = () => {
-        document.body.classList.add("lightmode");
-        localStorage.setItem("lightmode", "active");
-    }
-
-    // Disable light mode
-    const disableLightMode = () => {
-        document.body.classList.remove("lightmode");
-        localStorage.setItem("lightmode", null);
-    }
-
-    // Check and apply the saved theme mode on initial load
-    if (lightmode === "active") enableLightMode();
-
-
-    // if else statement to toggle between dark mode and light mode
-    themeSwitch.addEventListener("click", () => {
-        lightmode = localStorage.getItem("lightmode"); // get the current theme mode
-        lightmode !== "active" ? enableLightMode() : disableLightMode();
-
-
-    });
-
+        // Disable light mode
+        const disableLightMode = () => {
+            document.body.classList.remove("lightmode");
+            localStorage.setItem("lightmode", null);
+        }
+        
+        // Add click event listener to theme switch button
+            themeSwitch.addEventListener("click", () => {
+            lightmode !== "active" ? enableLightMode() : disableLightMode();
+            });
 
 }, []);
 
 return (
-    <body calssName="lightmode"> 
-        <div class="p-3 mb-2 bg-dark text-white"> {/* Dark background for better music controls visibility */}
-            <div className="app-header-section">
-                <button id="theme-switch">
-                    🌓
-                </button>
-                <img src={logo} className="App-logo" alt="logo" />
-                <h2 className="app-title">Strudel</h2>
-            </div>
+    <div className="app-container p-3 mb-2"> 
+        <div className="app-header-section">
+            <button id="theme-switch">
+                🌓
+            </button>
+            <img src={logo} className="App-logo" alt="logo" />
+            <h2 className="app-title">Strudel</h2>
+        </div>
         <main>
             <div className="container text-center">
                 <div className= "row">
@@ -185,10 +175,8 @@ return (
                         <SaveTxt/>
                     </div>
             </div>
-        </main >
-    </div >
-    </body>
-
+        </main>
+    </div>
 );
 
 
