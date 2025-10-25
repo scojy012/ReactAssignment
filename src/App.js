@@ -65,14 +65,6 @@ export function ProcessText(match, ...args) {
     return replace
 }
 
-const volumeSlider = document.getElementById('myRange');
-if(volumeSlider){
-    volumeSlider.addEventListener('input', (e) => {
-        const volume = e.target.value/ 100;
-        if (globalEditor && globalEditor.webaudioOutput)
-            globalEditor.webaudioOutput.setVolume(volume);
-    });
-}
 
 
 export default function StrudelDemo() {
@@ -117,6 +109,18 @@ useEffect(() => {
         Proc()
     }
 
+
+    const volumeSlider = document.getElementById('myRange');
+        if(volumeSlider){
+        volumeSlider.addEventListener('input', () => {
+        const volume = volumeSlider.value / 100;
+        if (globalEditor && globalEditor.volumeSlider)
+            globalEditor.volumeSlidersetVolume(volume);
+    });
+}
+
+
+
         let lightmode = localStorage.getItem("lightmode");
         const themeSwitch = document.getElementById("theme-switch");
         
@@ -136,6 +140,29 @@ useEffect(() => {
             themeSwitch.addEventListener("click", () => {
             lightmode !== "active" ? enableLightMode() : disableLightMode();
             });
+
+    function save_function(){
+        var textToSave = document.getElementById("proc").value; // Get text from textarea
+
+        var data = []; // Initialize an array to hold data
+        data.push(textToSave); // Add text to data array
+        
+        var data_string = JSON.stringify(data); // Convert data array to JSON string
+
+        var file = new Blob([data_string], {type: 'text/plain'}); // Create a Blob from the data
+        
+        var anchor = document.createElement("a"); // Create an anchor element
+
+        anchor.href = URL.createObjectURL(file); // Set href to Blob URL
+
+        anchor.download = "save.txt"; // Set the download attribute with a filename
+
+        anchor.click(); // Programmatically click the anchor to trigger download
+
+    }
+
+
+
 
 }, []);
 
