@@ -1,6 +1,6 @@
 import './App.css';
 import { useEffect, useRef } from "react";
-import { StrudelMirror } from '@strudel/codemirror';
+import { StrudelMirror, theme } from '@strudel/codemirror';
 import { evalScope } from '@strudel/core';
 import { drawPianoroll } from '@strudel/draw';
 import { initAudioOnFirstClick } from '@strudel/webaudio';
@@ -116,6 +116,35 @@ useEffect(() => {
         SetupButtons()
         Proc()
     }
+
+    let lightmode = localStorage.getItem("lightmode"); // get the current theme mode
+    const themeSwitch = document.getElementById("theme-switch");
+
+
+    // Enable light mode if previously activated
+    const enableLightMode = () => {
+        document.body.classList.add("lightmode");
+        localStorage.setItem("lightmode", "active");
+    }
+
+    // Disable light mode
+    const disableLightMode = () => {
+        document.body.classList.remove("lightmode");
+        localStorage.setItem("lightmode", null);
+    }
+
+    // Check and apply the saved theme mode on initial load
+    if (lightmode === "active") enableLightMode();
+
+
+    // if else statement to toggle between dark mode and light mode
+    themeSwitch.addEventListener("click", () => {
+        lightmode = localStorage.getItem("lightmode"); // get the current theme mode
+        lightmode !== "active" ? enableLightMode() : disableLightMode();
+
+
+    });
+
 
 }, []);
 
