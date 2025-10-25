@@ -6,7 +6,7 @@ function InstrumentButtons() {
     return (
         <>
         <div className="Instrument-selection">
-                <h3>🕹️ Select Instruments 👾</h3>
+                <h4>🕹️ Select Instruments 👾</h4>
                     <div className="btn-instrument-group" role="group" aria-label="Instrument Selection">
                             <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onChange={ProcAndPlay} defaultChecked />
                             <label className="form-check-label" htmlFor="flexRadioDefault1"> p1: ON </label>
