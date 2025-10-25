@@ -12,16 +12,15 @@ function PreProcessText() {
     return (
         <div className="col-md-12" style={{ padding: '20px', margin: '20px 0' }}>
             <div className="card">
-                <div className="card-header" id="headingPreprocess">
+                <div className="card-header"  id="headingPreprocess">
                     <h5 className="mb-0">
                         <button 
-                            className="btn btn-link text-decoration-none w-100 text-start form-label"
+                            className="btn bg-dark text-decoration-none w-100 text-start form-label"
                             type="button"
                             onClick={toggleCollapse}
                             aria-expanded={!TextCollapsed}
                             aria-controls="collapsePreprocess"
-                        >
-                            Text to preprocess:
+                        > <h4>Text to preprocess:</h4>
                         </button>
                     </h5>
                 </div>
