@@ -14,6 +14,7 @@ import logo from './logo.svg'; // Import logo image
 import PreProcessText from './components/PreProcessText'; // Import PreProcessText component
 import Editor from './components/Editor'; // Import Editor component
 import InstrumentButtons from './components/InstrumentButtons'; // Import InstrumentButtons component
+import SaveTxt from './components/SaveTxt';
 
 let globalEditor = null;
 
@@ -119,11 +120,15 @@ useEffect(() => {
 }, []);
 
 return (
-    <div class="p-3 mb-2 bg-dark text-white"> {/* Dark background for better music controls visibility */}
-        <div className="app-header-section">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h2 className="app-title">Strudel</h2>
-        </div>
+    <body calssName="lightmode"> 
+        <div class="p-3 mb-2 bg-dark text-white"> {/* Dark background for better music controls visibility */}
+            <div className="app-header-section">
+                <button id="theme-switch">
+                    🌓
+                </button>
+                <img src={logo} className="App-logo" alt="logo" />
+                <h2 className="app-title">Strudel</h2>
+            </div>
         <main>
             <div className="container text-center">
                 <div className= "row">
@@ -146,8 +151,15 @@ return (
                 </div>
             </div>
             <canvas id="roll"></canvas>
+             <div className="row">
+                    <div>
+                        <SaveTxt/>
+                    </div>
+            </div>
         </main >
     </div >
+    </body>
+
 );
 
 

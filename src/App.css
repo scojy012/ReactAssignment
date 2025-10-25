@@ -2,6 +2,34 @@
   text-align: center;
 }
 
+
+:root{
+  --main-bg-color: #282c34;
+  --main-text-color: white;
+  --highlight-color: #61dafb;
+}
+
+.lightmode{
+  background-color: white;;
+}
+
+.body{
+  background-color: var(--base -color);
+  color: var(--main-text-color)
+
+}
+
+#theme-switch{
+  background: transparent;
+  border: none;
+  font-size: 3rem;
+  cursor: pointer;
+  justify-content: center;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+
 /* logo size */
 .App-logo {
   height: 20vmin;
