@@ -129,7 +129,6 @@ useEffect(() => {
 
 
 
-        let lightmode = localStorage.getItem("lightmode");
         const themeSwitch = document.getElementById("theme-switch");
         
         // Enable light mode
@@ -143,11 +142,25 @@ useEffect(() => {
             document.body.classList.remove("lightmode");
             localStorage.setItem("lightmode", null);
         }
+
+        // Initialize theme based on localStorage
+        let lightmode = localStorage.getItem("lightmode");
+        if (lightmode === "active") {
+            enableLightMode();
+        }
         
         // Add click event listener to theme switch button
+        if (themeSwitch) {
             themeSwitch.addEventListener("click", () => {
-            lightmode !== "active" ? enableLightMode() : disableLightMode();
+                // Get current state from localStorage each time
+                const currentMode = localStorage.getItem("lightmode");
+                if (currentMode === "active") {
+                    disableLightMode();
+                } else {
+                    enableLightMode();
+                }
             });
+        }
 
 
 
