@@ -5,7 +5,14 @@ import PreProcessText from './PreProcessText';
 // upload file function with file reader
 function Upload(){
     
-    var file = document.getElementById("load").files[0]; // we are only choosing one file [0]
+    const title = document.getElementById("load")
+    if (title = document.getElementById("load").files[0] == null) {
+        alert('No file selected. Please choose a file to upload.');
+        return;
+    }
+
+
+    var file = document.getElementById("load").files[0]?.innerText; // we are only choosing one file [0]
 
     var reader = new FileReader(); // new file reader instance
 

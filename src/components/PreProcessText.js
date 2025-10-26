@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../App.css';
 import { stranger_tune } from '../tunes';
 
-function PreProcessText() {
+function PreProcessText(defaultValue, onChange) {
     const [TextCollapsed, setTextCollapsed] = useState(false);
 
     const toggleCollapse = () => {
@@ -32,8 +32,10 @@ function PreProcessText() {
                         <textarea 
                             className="form-control bg-primary text-white" 
                             rows="25" 
+                            onChange={onChange}
+                            defaultValue={defaultValue}
+                            
                             id="proc"
-                            defaultValue={stranger_tune}
                         />
                     </div>
                 </div>

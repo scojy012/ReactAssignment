@@ -1,5 +1,5 @@
 import './App.css';
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { StrudelMirror, theme } from '@strudel/codemirror';
 import { evalScope } from '@strudel/core';
 import { drawPianoroll } from '@strudel/draw';
@@ -15,7 +15,7 @@ import PreProcessText from './components/PreProcessText'; // Import PreProcessTe
 import Editor from './components/Editor'; // Import Editor component
 import InstrumentButtons from './components/InstrumentButtons'; // Import InstrumentButtons component
 import SaveTxt from './components/SaveTxt'; // Import SaveTxt component
-import Upload from './components/Upload'; // Import Upload component
+//import Upload from './components/Upload'; // Import Upload component
 
 let globalEditor = null;
 
@@ -23,7 +23,7 @@ const handleD3Data = (event) => {
     console.log(event.detail);
 };
 
-export function SetupButtons() {
+/*export function SetupButtons() {
 
     document.getElementById('play').addEventListener('click', () => globalEditor.evaluate());
     document.getElementById('stop').addEventListener('click', () => globalEditor.stop());
@@ -39,6 +39,7 @@ export function SetupButtons() {
     }
     )
 }
+*/
 
 export function ProcAndPlay() {
     if (globalEditor != null && globalEditor.repl.state.started == true) {
@@ -47,7 +48,6 @@ export function ProcAndPlay() {
         globalEditor.evaluate();
     }
 }
-
 export function Proc() {
 
     let proc_text = document.getElementById('proc').value
@@ -55,7 +55,6 @@ export function Proc() {
     ProcessText(proc_text);
     globalEditor.setCode(proc_text_replaced)
 }
-
 export function ProcessText(match, ...args) {
 
     let replace = ""
@@ -67,10 +66,18 @@ export function ProcessText(match, ...args) {
 }
 
 
-
 export default function StrudelDemo() {
 
-const hasRun = useRef(false);
+    const hasRun = useRef(false);
+
+    const handlePlay = () => {
+        globalEditor.evaluate();
+    }
+    const handleStop = () => {
+        globalEditor.stop();
+    }
+
+    const [songText, setSongText] = useState(stranger_tune);
 
 useEffect(() => {
 
@@ -106,8 +113,8 @@ useEffect(() => {
             });
             
         document.getElementById('proc').value = stranger_tune
-        SetupButtons()
-        Proc()
+        //SetupButtons()
+        //Proc()
     }
 
 
@@ -144,8 +151,8 @@ useEffect(() => {
 
 
 
-
-}, []);
+            globalEditor.setCode(songText);
+}, [songText]);
 
 return (
     <div className="app-container p-3 mb-2"> 
@@ -160,7 +167,7 @@ return (
             <div className="container text-center">
                 <div className= "row">
                        <div className="col-6">
-                            <PlayButtons/>
+                            <PlayButtons onPlay = {handlePlay} onStop={handleStop}/>
                         </div>
                     <div className="col">
                         <InstrumentButtons/>
@@ -168,7 +175,7 @@ return (
                 </div>
                 <div className = "row">
                     <div>
-                        <PreProcessText/>
+                        <PreProcessText defaultvalue={songText} onChange={(e) => setSongText(e.target.value)}/>
                     </div>
                 </div>
                 <div className="row">
@@ -183,7 +190,7 @@ return (
                         <SaveTxt/>
                     </div>
                     <div>
-                        <Upload/>
+ 
                     </div>
             </div>
         </main>

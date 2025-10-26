@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 
-function PlayButtons() {
+function PlayButtons({ onPlay, onStop }) {
     const [volume, setVolume] = useState(50);
 
     // Function to handle volume change
@@ -30,10 +30,10 @@ function PlayButtons() {
         <div className="music-controls">
             <h4>👽 Media Player Buttons 🛸</h4> {/* Using the emojis for nice appeal UI */}
             <div className="btn-group-custom" role="group" aria-label="Play and Stop Buttons">
-                <button id="play" className="music-btn play-btn" title="Play">
+                <button id="play" className="music-btn play-btn" onClick={onPlay} title="Play">
                     ▶ {/* Play Button using the emoji symbol */}
                 </button>
-                <button id="stop" className="music-btn stop-btn" title="Stop">
+                <button id="stop" className="music-btn stop-btn" onClick={onStop} title="Stop">
                     ⏹ {/* Stop Button using the emoji symbol */}
                 </button>
                 <button id="process_play" className="music-btn process-btn" title="Process & Play">
