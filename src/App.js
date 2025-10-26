@@ -16,6 +16,7 @@ import Editor from './components/Editor'; // Import Editor component
 import InstrumentButtons from './components/InstrumentButtons'; // Import InstrumentButtons component
 import SaveTxt from './components/SaveTxt'; // Import SaveTxt component
 //import Upload from './components/Upload'; // Import Upload component
+import CanvasRoll from './components/CanvasRoll';
 
 let globalEditor = null;
 
@@ -42,7 +43,7 @@ const handleD3Data = (event) => {
 */
 
 export function ProcAndPlay() {
-    if (globalEditor != null && globalEditor.repl.state.started == true) {
+    if (globalEditor != null && globalEditor.repl.state.started === true) {
         console.log(globalEditor)
         Proc()
         globalEditor.evaluate();
@@ -53,7 +54,9 @@ export function Proc() {
     let proc_text = document.getElementById('proc').value
     let proc_text_replaced = proc_text.replaceAll('<p1_Radio>', ProcessText);
     ProcessText(proc_text);
-    globalEditor.setCode(proc_text_replaced)
+    if (globalEditor) {
+        globalEditor.setCode(proc_text_replaced)
+    }
 }
 export function ProcessText(match, ...args) {
 
@@ -71,10 +74,14 @@ export default function StrudelDemo() {
     const hasRun = useRef(false);
 
     const handlePlay = () => {
-        globalEditor.evaluate();
+        if (globalEditor) {
+            globalEditor.evaluate();
+        }
     }
     const handleStop = () => {
-        globalEditor.stop();
+        if (globalEditor) {
+            globalEditor.stop();
+        }
     }
 
     const [songText, setSongText] = useState(stranger_tune);
@@ -127,54 +134,10 @@ useEffect(() => {
     });
 }
 
-            globalEditor.setCode(songText);
+            if (globalEditor) {
+                globalEditor.setCode(songText);
+            }
 }, [songText]);
-
-// Separate useEffect for theme initialization - runs only once
-useEffect(() => {
-    const themeSwitch = document.getElementById("theme-switch");
-    
-    // Enable light mode
-    const enableLightMode = () => {
-        document.body.classList.add("lightmode");
-        localStorage.setItem("lightmode", "active");
-    }
-
-    // Disable light mode
-    const disableLightMode = () => {
-        document.body.classList.remove("lightmode");
-        localStorage.setItem("lightmode", null);
-    }
-
-    // Initialize theme based on localStorage only once
-    const lightmode = localStorage.getItem("lightmode");
-    if (lightmode === "active") {
-        document.body.classList.add("lightmode");
-    } else {
-        document.body.classList.remove("lightmode");
-    }
-    
-    // Add click event listener to theme switch button
-    const handleThemeToggle = () => {
-        const currentMode = localStorage.getItem("lightmode");
-        if (currentMode === "active") {
-            disableLightMode();
-        } else {
-            enableLightMode();
-        }
-    };
-
-    if (themeSwitch) {
-        themeSwitch.addEventListener("click", handleThemeToggle);
-    }
-
-    // Cleanup function to remove event listener
-    return () => {
-        if (themeSwitch) {
-            themeSwitch.removeEventListener("click", handleThemeToggle);
-        }
-    };
-}, []); // Empty dependency array means this runs only once
 
 return (
     <div className="app-container p-3 mb-2"> 
@@ -206,13 +169,12 @@ return (
                     </div>
                 </div>
             </div>
-            <canvas id="roll"></canvas>
-             <div className="row">
+            <div>
+                <CanvasRoll/>
+            </div>
+            <div className="row">
                     <div>
                         <SaveTxt/>
-                    </div>
-                    <div>
- 
                     </div>
             </div>
         </main>
