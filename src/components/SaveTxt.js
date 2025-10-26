@@ -31,13 +31,12 @@ function SaveTxt() {
     };
 
     return (
-        <div style={{ padding: '20px', textAlign: 'center' }}>
+        <div>
             <button 
                 type="button" 
                 onClick={save_function} 
                 className="btn btn-secondary btn-lg"
-                title="Save text to file"
-            >
+                title="Save text to file">
                 <h2>💾 Save</h2>
             </button>
         </div>

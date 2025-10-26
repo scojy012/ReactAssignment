@@ -30,7 +30,9 @@ function Upload(){
 
     return (
         <>
+        <div>
             <input type="file" id="fileInput" accept=".json,.txt" onChange={handleFileChange} />
+        </div>
         </>
     );
 

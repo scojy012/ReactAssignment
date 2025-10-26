@@ -343,3 +343,33 @@ box-shadow: 0px 1px 5px rgba(0,0,0,0.3);
   border-radius: 4px;
   background-color: #212529;
 }
+
+/* Save and Upload buttons side by side */
+.save-upload {
+  margin: 20px 0;
+  padding: 15px;
+}
+
+.save-upload .col-6 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+
+#fileInput {
+  padding: 10px 10px;
+  background-color: transparent;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+body.lightmode #fileInput {
+  background-color: transparent;
+  font-weight: bold;
+  color: #333;
+}
+

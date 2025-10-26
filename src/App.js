@@ -165,11 +165,11 @@ return (
                 <CanvasRoll/>
             </div>
             <canvas id="roll"></canvas>
-             <div className="row">
-                    <div>
+             <div className="save-upload row">
+                    <div className="col-6">
                         <SaveTxt/>
                     </div>
-                    <div>
+                    <div className="col-6">
                         <Upload/>
                     </div>
             </div>
