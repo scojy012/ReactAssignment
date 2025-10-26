@@ -127,45 +127,54 @@ useEffect(() => {
     });
 }
 
-
-
-        const themeSwitch = document.getElementById("theme-switch");
-        
-        // Enable light mode
-        const enableLightMode = () => {
-            document.body.classList.add("lightmode");
-            localStorage.setItem("lightmode", "active");
-        }
-
-        // Disable light mode
-        const disableLightMode = () => {
-            document.body.classList.remove("lightmode");
-            localStorage.setItem("lightmode", null);
-        }
-
-        // Initialize theme based on localStorage
-        let lightmode = localStorage.getItem("lightmode");
-        if (lightmode === "active") {
-            enableLightMode();
-        }
-        
-        // Add click event listener to theme switch button
-        if (themeSwitch) {
-            themeSwitch.addEventListener("click", () => {
-                // Get current state from localStorage each time
-                const currentMode = localStorage.getItem("lightmode");
-                if (currentMode === "active") {
-                    disableLightMode();
-                } else {
-                    enableLightMode();
-                }
-            });
-        }
-
-
-
             globalEditor.setCode(songText);
 }, [songText]);
+
+// Separate useEffect for theme initialization - runs only once
+useEffect(() => {
+    const themeSwitch = document.getElementById("theme-switch");
+    
+    // Enable light mode
+    const enableLightMode = () => {
+        document.body.classList.add("lightmode");
+        localStorage.setItem("lightmode", "active");
+    }
+
+    // Disable light mode
+    const disableLightMode = () => {
+        document.body.classList.remove("lightmode");
+        localStorage.setItem("lightmode", null);
+    }
+
+    // Initialize theme based on localStorage only once
+    const lightmode = localStorage.getItem("lightmode");
+    if (lightmode === "active") {
+        document.body.classList.add("lightmode");
+    } else {
+        document.body.classList.remove("lightmode");
+    }
+    
+    // Add click event listener to theme switch button
+    const handleThemeToggle = () => {
+        const currentMode = localStorage.getItem("lightmode");
+        if (currentMode === "active") {
+            disableLightMode();
+        } else {
+            enableLightMode();
+        }
+    };
+
+    if (themeSwitch) {
+        themeSwitch.addEventListener("click", handleThemeToggle);
+    }
+
+    // Cleanup function to remove event listener
+    return () => {
+        if (themeSwitch) {
+            themeSwitch.removeEventListener("click", handleThemeToggle);
+        }
+    };
+}, []); // Empty dependency array means this runs only once
 
 return (
     <div className="app-container p-3 mb-2"> 
