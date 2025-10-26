@@ -15,7 +15,7 @@ import PreProcessText from './components/PreProcessText'; // Import PreProcessTe
 import Editor from './components/Editor'; // Import Editor component
 import InstrumentButtons from './components/InstrumentButtons'; // Import InstrumentButtons component
 import SaveTxt from './components/SaveTxt'; // Import SaveTxt component
-//import Upload from './components/Upload'; // Import Upload component
+import Upload from './components/Upload'; // Import Upload component
 import CanvasRoll from './components/CanvasRoll';
 
 let globalEditor = null;
@@ -54,9 +54,7 @@ export function Proc() {
     let proc_text = document.getElementById('proc').value
     let proc_text_replaced = proc_text.replaceAll('<p1_Radio>', ProcessText);
     ProcessText(proc_text);
-    if (globalEditor) {
-        globalEditor.setCode(proc_text_replaced)
-    }
+    globalEditor.setCode(proc_text_replaced)
 }
 export function ProcessText(match, ...args) {
 
@@ -74,14 +72,10 @@ export default function StrudelDemo() {
     const hasRun = useRef(false);
 
     const handlePlay = () => {
-        if (globalEditor) {
-            globalEditor.evaluate();
-        }
+        globalEditor.evaluate();
     }
     const handleStop = () => {
-        if (globalEditor) {
-            globalEditor.stop();
-        }
+        globalEditor.stop();
     }
 
     const [songText, setSongText] = useState(stranger_tune);
@@ -134,9 +128,7 @@ useEffect(() => {
     });
 }
 
-            if (globalEditor) {
-                globalEditor.setCode(songText);
-            }
+            globalEditor.setCode(songText);
 }, [songText]);
 
 return (
@@ -172,9 +164,13 @@ return (
             <div>
                 <CanvasRoll/>
             </div>
-            <div className="row">
+            <canvas id="roll"></canvas>
+             <div className="row">
                     <div>
                         <SaveTxt/>
+                    </div>
+                    <div>
+                        <Upload/>
                     </div>
             </div>
         </main>
