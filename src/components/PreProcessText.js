@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../App.css';
 import { stranger_tune } from '../tunes';
 
-function PreProcessText(defaultValue, onChange) {
+function PreProcessText({ defaultValue, onChange }) {
     const [TextCollapsed, setTextCollapsed] = useState(false);
 
     const toggleCollapse = () => {
@@ -34,7 +34,7 @@ function PreProcessText(defaultValue, onChange) {
                             rows="25" 
                             onChange={onChange}
                             defaultValue={defaultValue}
-                            
+
                             id="proc"
                         />
                     </div>

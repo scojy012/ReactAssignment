@@ -175,7 +175,7 @@ return (
                 </div>
                 <div className = "row">
                     <div>
-                        <PreProcessText defaultvalue={songText} onChange={(e) => setSongText(e.target.value)}/>
+                        <PreProcessText defaultValue={songText} onChange={(e) => setSongText(e.target.value)}/>
                     </div>
                 </div>
                 <div className="row">
