@@ -25,23 +25,6 @@ const handleD3Data = (event) => {
     console.log(event.detail);
 };
 
-/*export function SetupButtons() {
-
-    document.getElementById('play').addEventListener('click', () => globalEditor.evaluate());
-    document.getElementById('stop').addEventListener('click', () => globalEditor.stop());
-    document.getElementById('process').addEventListener('click', () => {
-        Proc()
-    }
-    )
-    document.getElementById('process_play').addEventListener('click', () => {
-        if (globalEditor != null) {
-            Proc()
-            globalEditor.evaluate()
-        }
-    }
-    )
-}
-*/
 
 export function ProcAndPlay() {
     if (globalEditor != null && globalEditor.repl.state.started === true) {
@@ -71,12 +54,22 @@ export function ProcessText(match, ...args) {
 export default function StrudelDemo() {
 
     const hasRun = useRef(false);
+    const [isDarkMode, setIsDarkMode] = useState(true); // Track theme state
 
     const handlePlay = () => {
         globalEditor.evaluate();
     }
     const handleStop = () => {
         globalEditor.stop();
+    }
+
+    const toggleTheme = () => {
+        setIsDarkMode(!isDarkMode);
+        if (isDarkMode) {
+            document.body.classList.add('lightmode');
+        } else {
+            document.body.classList.remove('lightmode');
+        }
     }
 
     const [songText, setSongText] = useState(stranger_tune);
@@ -87,6 +80,13 @@ useEffect(() => {
         document.addEventListener("d3Data", handleD3Data);
         console_monkey_patch();
         hasRun.current = true;
+        
+        // Initialize theme - default to dark mode
+        if (isDarkMode) {
+            document.body.classList.remove('lightmode');
+        } else {
+            document.body.classList.add('lightmode');
+        }
         //Code copied from example: https://codeberg.org/uzu/strudel/src/branch/main/examples/codemirror-repl
             //init canvas
             const canvas = document.getElementById('roll');
@@ -135,7 +135,7 @@ useEffect(() => {
 return (
     <div className="app-container p-3 mb-2"> 
         <div className="app-header-section">
-            <button id="theme-switch">
+            <button id="theme-switch" onClick={toggleTheme}>
                 🌓
             </button>
             <img src={logo} className="App-logo" alt="logo" />

@@ -11,25 +11,21 @@ function PreProcessText({ defaultValue, onChange }) {
 
     return (
         <div className="PreprocessText-container" style={{ padding: '20px', margin: '20px 0' }}>
-            <div className="card">
-                <div className="card-header"  id="headingPreprocess">
-                        <button 
-                            className="btn bg-dark w-100 text-start form-label"
+                <div className="Preprocess-card-header"  id="headingPreprocess">
+                    <button className="btn bg-dark w-100 text-start form-label"
                             type="button"
                             onClick={toggleCollapse}
                             aria-expanded={!TextCollapsed}
                             aria-controls="collapsePreprocess">
-                                <h4>Preprocess Text 📄⬇️</h4>
-                        </button>
+                            <h4>Preprocess Text 📄⬇️</h4>
+                    </button>
                 </div>
                 <div 
                     id="collapsePreprocess" 
                     className={`collapse ${!TextCollapsed ? 'show' : ''}`}
-                    aria-labelledby="headingPreprocess"
-                >
+                    aria-labelledby="headingPreprocess">
                     <div className="card-body">
-                        <textarea 
-                            className="form-control bg-primary text-white" 
+                    <textarea className="form-control bg-primary text-white" 
                             rows="25" 
                             onChange={onChange}
                             defaultValue={defaultValue}
@@ -38,7 +34,6 @@ function PreProcessText({ defaultValue, onChange }) {
                     </div>
                 </div>
             </div>
-        </div>
     );
 }
 
