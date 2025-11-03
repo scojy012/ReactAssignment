@@ -10,7 +10,7 @@ function Editor() {
 
     return (
         <>
-            <div className="editor-container">
+            <div className="editor-container" style={{ padding: '20px', margin: '20px 0' }}>
                 <div className= "editor-card-header" id="headingEditor">
                     <button className="btn bg-dark w-100 text-start form-label"
                         type="button"

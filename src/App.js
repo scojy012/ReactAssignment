@@ -168,9 +168,6 @@ return (
             <div>
                 <CanvasRoll/>
             </div>
-            <div>
-            <canvas id="roll"></canvas>
-            </div>
         </main>
     </div>
 );

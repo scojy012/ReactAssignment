@@ -319,19 +319,22 @@ box-shadow: 0px 1px 5px rgba(0,0,0,0.3);
   text-shadow: 2px 2px 4px rgba(244, 67, 54, 0.4);
 }
 
-.col-md-12 .card {
+.PreprocessText-container .card {
     background-color: transparent;
     border: none;
 }
 
-.col-md-12 .card .card-header {
+.PreprocessText-container .card .card-header {
     background-color: transparent;
     border-bottom: none;
 }
 
-.col-md-12 .card .card-header h4 {
-    color: #24c121;
+.PreprocessText-container .card .card-header h4 {
+    font-size: 2.0rem;
+    text-align: left;
     font-weight: bolder;
+    color:#24c121;
+    margin: 0;
     text-shadow: 2px 2px 4px rgba(244, 67, 54, 0.4);
 }
 
@@ -339,10 +342,11 @@ box-shadow: 0px 1px 5px rgba(0,0,0,0.3);
 .canvas-container {
   display: flex;
   justify-content: center;
-  margin: 20px 0;
+  margin: 20px auto;
   border: 3px solid lime;
   border-radius: 4px;
   background-color: #212529;
+  width: 10%;
 }
 
 /* Save and Upload buttons side by side */
