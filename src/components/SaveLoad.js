@@ -10,7 +10,7 @@ function SaveLoad() {
         console.log(fileUpload);
         // if no file selected than return a message
         if(fileUpload.length <= 0){
-            alert('No file selected. Please choose a file to upload.');
+            alert('');
             return;
         }
 
@@ -57,22 +57,20 @@ function SaveLoad() {
     return (
         <div className="save-load-controls">
             <h4>📡 Save/Upload 🛰️</h4>
-            <div className="save-load-buttons">
-                <div className="file-input-wrapper">
-                    <input 
-                        type="file" 
-                        id="fileInput" 
-                        accept=".json,.txt" 
-                        onChange={handleFileChange}
-                        className="file-input-custom"
-                        title="Upload file"
-                    />
-                </div>
+            <div className="save-load-buttons" style={{ display: 'flex', alignItems: 'center' }}>
+                <input 
+                    type="file" 
+                    id="fileInput" 
+                    accept=".json,.txt" 
+                    onChange={handleFileChange}
+                    className="file-input-custom"
+                    title="Upload file"/>
                 <button 
                     type="button" 
                     onClick={save_function} 
-                    className="save-load-btn"
-                    title="Save text to file">
+                    className="save-btn"
+                    title="Save text to file"
+                    style={{ marginLeft: '-80px' }}>
                     💾
                 </button>
             </div>
