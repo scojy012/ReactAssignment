@@ -119,16 +119,6 @@ useEffect(() => {
         //Proc()
     }
 
-
-    const volumeSlider = document.getElementById('myRange');
-        if(volumeSlider){
-        volumeSlider.addEventListener('input', () => {
-        const volume = volumeSlider.value / 100;
-        if (globalEditor && globalEditor.volumeSlider)
-            globalEditor.volumeSlidersetVolume(volume);
-    });
-}
-
             globalEditor.setCode(songText);
 }, [songText]);
 
