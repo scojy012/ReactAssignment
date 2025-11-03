@@ -66,9 +66,9 @@ export default function StrudelDemo() {
     const toggleTheme = () => {
         setIsDarkMode(!isDarkMode);
         if (isDarkMode) {
-            document.body.classList.add('lightmode');
+            document.documentElement.classList.add('light-theme');
         } else {
-            document.body.classList.remove('lightmode');
+            document.documentElement.classList.remove('light-theme');
         }
     }
 
@@ -83,9 +83,9 @@ useEffect(() => {
         
         // Initialize theme - default to dark mode
         if (isDarkMode) {
-            document.body.classList.remove('lightmode');
+            document.documentElement.classList.remove('light-theme');
         } else {
-            document.body.classList.add('lightmode');
+            document.documentElement.classList.add('light-theme');
         }
         //Code copied from example: https://codeberg.org/uzu/strudel/src/branch/main/examples/codemirror-repl
             //init canvas

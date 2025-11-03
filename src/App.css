@@ -3,21 +3,29 @@
 }
 
 
-:root{
-  --main-bg-color: #282c34;
+/* Dark mode variables (default) */
+:root {
+  --main-bg-color: #212529;
   --main-text-color: white;
   --highlight-color: #61dafb;
+  --card-bg: #282c34;
+  --border-color: lime;
 }
 
-body.lightmode {
-  background-color: white !important;
-  color: #333 !important;
+/* Light mode variables */
+:root.light-theme {
+  --main-bg-color: white;
+  --main-text-color: #212529;
+  --highlight-color: #0d6efd;
+  --card-bg: #f8f9fa;
+  --border-color: #24c121;
 }
 
-/* Default dark mode for body */
-body {
-  background-color: #212529 !important;
-  color: white !important;
+/* Body styles using CSS variables */
+html body {
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .body{
@@ -343,9 +351,9 @@ box-shadow: 0px 1px 5px rgba(0,0,0,0.3);
   display: flex;
   justify-content: center;
   margin: 20px auto;
-  border: 3px solid lime;
+  border: 3px solid var(--border-color);
   border-radius: 4px;
-  background-color: #212529;
+  background-color: var(--main-bg-color);
   width: 10%;
 }
 
@@ -372,10 +380,8 @@ box-shadow: 0px 1px 5px rgba(0,0,0,0.3);
 }
 
 
-body.lightmode #fileInput {
-  background-color: transparent;
-  font-weight: bold;
-  color: #333;
+#fileInput {
+  color: var(--main-text-color);
 }
 
 /* Save and Load Controls Styling */
