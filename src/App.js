@@ -14,9 +14,10 @@ import logo from './logo.svg'; // Import logo image
 import PreProcessText from './components/PreProcessText'; // Import PreProcessText component
 import Editor from './components/Editor'; // Import Editor component
 import InstrumentButtons from './components/InstrumentButtons'; // Import InstrumentButtons component
-import SaveTxt from './components/SaveTxt'; // Import SaveTxt component
-import Upload from './components/Upload'; // Import Upload component
+//import SaveTxt from './components/SaveTxt'; // Import SaveTxt component
+//import Upload from './components/Upload'; // Import Upload component
 import CanvasRoll from './components/CanvasRoll';
+import SaveLoad from './components/SaveLoad';
 
 let globalEditor = null;
 
@@ -142,12 +143,15 @@ return (
         </div>
         <main>
             <div className="container text-center">
-                <div className= "row">
-                       <div className="col-6">
-                            <PlayButtons onPlay = {handlePlay} onStop={handleStop}/>
-                        </div>
-                    <div className="col">
+                <div className="row">
+                    <div className="col-4">
+                        <PlayButtons onPlay = {handlePlay} onStop={handleStop}/>
+                    </div>
+                    <div className="col-4">
                         <InstrumentButtons/>
+                    </div>
+                    <div className="col-4">
+                        <SaveLoad/>
                     </div>
                 </div>
                 <div className = "row">
@@ -164,14 +168,8 @@ return (
             <div>
                 <CanvasRoll/>
             </div>
+            <div>
             <canvas id="roll"></canvas>
-             <div className="save-upload row">
-                    <div className="col-6">
-                        <SaveTxt/>
-                    </div>
-                    <div className="col-6">
-                        <Upload/>
-                    </div>
             </div>
         </main>
     </div>

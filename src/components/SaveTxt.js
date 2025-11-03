@@ -37,7 +37,7 @@ function SaveTxt() {
                 onClick={save_function} 
                 className="btn btn-secondary btn-lg"
                 title="Save text to file">
-                <h2>💾 Save</h2>
+                <h2>💾</h2>
             </button>
         </div>
     );

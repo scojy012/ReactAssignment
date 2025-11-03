@@ -97,13 +97,14 @@ body {
 
 /* Music Button Styling  padding around button areas with background gradient (red to blue) and rounded corners */
 .music-controls {
-  padding: 20px;
+  padding: 10px;
   background: linear-gradient(135deg, #393434 0%, #508fb9 100%);
   box-shadow: 0 8px 32px rgba(255, 0, 0, 0.1);
   border-radius: 12px;
   margin: 10px;
   min-height: 140px; /* Consistent height with instrument selection */
-  min-width: 300px;  /* Ensure consistent width */
+  width: calc(100% - 20px); /* Fill container width minus margins */
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -121,12 +122,12 @@ body {
 
 .btn-group-custom {
   display: flex;
-  gap: 8px;
+  gap: 2px;
   justify-content: center;
 }
 
 .music-btn {
-  padding: 8px;
+  padding: 2px;
   border: none;
   border-radius: 0;
   font-weight: normal;
@@ -347,14 +348,14 @@ box-shadow: 0px 1px 5px rgba(0,0,0,0.3);
 /* Save and Upload buttons side by side */
 .save-upload {
   margin: 20px 0;
-  padding: 15px;
+  padding: 5px;
 }
 
 .save-upload .col-6 {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 5px;
 }
 
 
@@ -373,3 +374,24 @@ body.lightmode #fileInput {
   color: #333;
 }
 
+/* Save and Load Controls Styling */
+.save-load-controls {
+  padding: 20px;
+  background: linear-gradient(135deg, #393434 10%, #f17b27c5 90%);
+  box-shadow: 0 8px 32px rgba(255, 0, 0, 0.1);
+  border-radius: 12px;
+  margin: 10px;
+  min-height: 140px; /* Consistent height with other controls */
+  min-width: 300px;  /* Ensure consistent width */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.save-load-controls h4 {
+  color: rgb(255, 255, 255);
+  font-weight: 800;
+  font-size: 2.0rem;
+  text-align: center;
+  margin: 0 0 15px 0;
+}

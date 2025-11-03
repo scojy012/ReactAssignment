@@ -28,7 +28,7 @@ function PlayButtons({ onPlay, onStop }) {
 
     return (
         <div className="music-controls">
-            <h4>👽 Media Player Buttons 🛸</h4> {/* Using the emojis for nice appeal UI */}
+            <h4>👽 Media Player 🛸</h4> {/* Using the emojis for nice appeal UI */}
             <div className="btn-group-custom" role="group" aria-label="Play and Stop Buttons">
                 <button id="play" className="music-btn play-btn" onClick={onPlay} title="Play">
                     ▶ {/* Play Button using the emoji symbol */}
