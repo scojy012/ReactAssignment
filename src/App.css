@@ -399,3 +399,9 @@ body.lightmode #fileInput {
   text-align: center;
   margin: 0 0 15px 0;
 }
+
+
+.music-btn.volume-btn {
+  background: transparent;
+
+}

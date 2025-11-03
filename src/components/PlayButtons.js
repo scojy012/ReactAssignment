@@ -3,26 +3,40 @@ import '../App.css';
 
 function PlayButtons({ onPlay, onStop }) {
     const [volume, setVolume] = useState(50);
+    const [isMuted, setIsMuted] = useState(false);
+    const [previousVolume, setPreviousVolume] = useState(50);
 
-    // Function to handle volume change
-    const handleVolumeChange = (event) => {
-        const newVolume = event.target.value;
-        setVolume(newVolume);
-        
-        // Apply volume to audio context if it exists
+    // Function to apply volume to audio context
+    const applyVolume = (volumeValue) => {
         try {
             const audioContext = window.getAudioContext && window.getAudioContext();
             if (audioContext && audioContext.destination) {
                 // Set volume (0.0 to 1.0)
-                const volumeValue = newVolume / 100;
+                const normalizedVolume = volumeValue / 100;
                 
                 // You might need to adjust this based on how Strudel handles audio
                 if (window.globalEditor && window.globalEditor.audioContext) {
-                    window.globalEditor.audioContext.destination.gain = volumeValue;
+                    window.globalEditor.audioContext.destination.gain = normalizedVolume;
                 }
             }
         } catch (error) {
             console.log('Volume control not available yet');
+        }
+    };
+
+    // Function to toggle mute/unmute
+    const toggleMute = () => {
+        if (isMuted) {
+            // Unmute: restore previous volume
+            setVolume(previousVolume);
+            setIsMuted(false);
+            applyVolume(previousVolume);
+        } else {
+            // Mute: save current volume and set to 0
+            setPreviousVolume(volume);
+            setVolume(0);
+            setIsMuted(true);
+            applyVolume(0);
         }
     };
 
@@ -43,18 +57,12 @@ function PlayButtons({ onPlay, onStop }) {
                     ♻️ {/* Preprocess Button using the emoji symbol */}
                 </button>
 
-                <div className="slideContainer" title="Adjust Volume">
-                    <label htmlFor="myRange">🔉 {volume}%</label>
-                    <input 
-                        type="range" 
-                        min="0" 
-                        max="100" 
-                        value={volume}
-                        onChange={handleVolumeChange}
-                        id="myRange" 
-                        className="slider"
-                    />
-                </div>
+                    <button 
+                        className="music-btn volume-btn" 
+                        onClick={toggleMute}
+                        title={isMuted ? "Unmute" : "Mute"}>
+                        {isMuted ? "🔇" : "🔊"}
+                    </button>
             </div>
         </div>
     );
