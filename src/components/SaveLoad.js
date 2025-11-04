@@ -1,59 +1,57 @@
-
+// import the modules 
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 import PreProcessText from './PreProcessText';
 
 function SaveLoad() {
-    
+    // function to handle file upload and read its content
     const handleFileChange = (event) => {
         var fileUpload = event.target.files;
         console.log(fileUpload);
         // if no file selected than return a message
         if(fileUpload.length <= 0){
-            alert('');
+            alert('no file selected');
             return;
         }
 
         var reader = new FileReader(); // new file reader instance
         reader.onload = function(e) {
             console.log(e);
-            var result = JSON.stringify(e.target.result);
-            var formatted = JSON.stringify(result, null, 2);
+            var result = e.target.result;  // Just use the raw file content
             const procElement = document.getElementById("proc");
             if (procElement) {
-                procElement.value = formatted;
+                procElement.value = result;  // Set raw content directly
             }
         }
 
         reader.readAsText(fileUpload.item(0));
     };
 
+
+// function to save the content of the textarea with id="proc" to a textfile
     const save_function = () => {
         var textToSave = document.getElementById("proc").value; // Get text from textarea
 
         try{
-            var data = []; // Initialize an array to hold data
-            data.push(textToSave); // Add text to data array
+            var file = new Blob([textToSave], {type: 'text'}); // Create Blob directly from text
             
-            var data_string = JSON.stringify(data); // Convert data array to JSON string
+            var save = document.createElement("a"); // Create save
 
-            var file = new Blob([data_string], {type: 'text'}); // Create a Blob from the data
+            save.href = URL.createObjectURL(file); // Set href to Blob URL
+
+            save.download = "saveMusic.txt"; // Set the filename for the user to save and change
+
+            save.click(); // confirm click to download
             
-            var anchor = document.createElement("a"); // Create an anchor element
-
-            anchor.href = URL.createObjectURL(file); // Set href to Blob URL
-
-            anchor.download = "save.txt"; // Set the download attribute with a filename
-
-            anchor.click(); // Programmatically click the anchor to trigger download
-            
-            // Clean up the URL object
-            URL.revokeObjectURL(anchor.href);
-        } catch (error) {
+            // Clean up the URL object and not keep the reference anymore
+            URL.revokeObjectURL(save.href);
+        } catch (error) { // catch error if any file save fails
             console.error("Error saving file:", error);
         }
     };
 
+
+    // return the save/load for the textarea with id="proc"
     return (
         <div className="save-load-controls">
             <h4>📡 Save/Upload 🛰️</h4>
