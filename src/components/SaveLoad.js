@@ -1,14 +1,14 @@
 // import the modules 
 import React, { useState, useEffect } from 'react';
 import '../App.css';
-import PreProcessText from './PreProcessText';
 
 function SaveLoad() {
+
     // function to handle file upload and read its content
     const handleFileChange = (event) => {
         var fileUpload = event.target.files;
         console.log(fileUpload);
-        // if no file selected than return a message
+        // if no file selected than return a error message
         if(fileUpload.length <= 0){
             alert('no file selected');
             return;
@@ -17,13 +17,16 @@ function SaveLoad() {
         var reader = new FileReader(); // new file reader instance
         reader.onload = function(e) {
             console.log(e);
-            var result = e.target.result;  // Just use the raw file content
-            const procElement = document.getElementById("proc");
+            var result = e.target.result;  // use the raw file content directly not use JSON stringify
+            const procElement = document.getElementById("proc"); // locate the textarea with id="proc" to save the content
+           // check if procElement exists before setting value
             if (procElement) {
-                procElement.value = result;  // Set raw content directly
+                procElement.value = result;
+            } else{
+                console.error("Could not find textarea with id 'proc'");
             }
         }
-
+        // read the selected file
         reader.readAsText(fileUpload.item(0));
     };
 
