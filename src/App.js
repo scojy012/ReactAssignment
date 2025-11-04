@@ -43,7 +43,8 @@ export function Proc() {
 export function ProcessText(match, ...args) {
 
     let replace = ""
-    if (document.getElementById('flexRadioDefault2').checked) {
+    const radioElement = document.getElementById('flexRadioDefault2');
+    if (radioElement && radioElement.checked) {
         replace = "_"
     }
 
