@@ -3,6 +3,8 @@
 }
 
 
+  /*Theme Switching*/
+
 /* Dark mode variables (default) */
 :root {
   --main-bg-color: #212529;
@@ -15,23 +17,20 @@
 /* Light mode variables */
 :root.light-theme {
   --main-bg-color: white;
-  --main-text-color: #212529;
-  --highlight-color: #0d6efd;
-  --card-bg: #f8f9fa;
-  --border-color: #24c121;
+  --main-text-color: #ffffff;
+  --border-color: #000000;
 }
 
 /* Body styles using CSS variables */
 html body {
   background-color: var(--main-bg-color);
   color: var(--main-text-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.5s;
 }
 
 .body{
   background-color: var(--base -color);
   color: var(--main-text-color)
-
 }
 
 #theme-switch{
@@ -45,16 +44,31 @@ html body {
   right: 10px;
 }
 
+  /* Logo */
+/* Logo spin animation */
 
-
-
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 /* logo size */
 .App-logo {
   height: 20vmin;
   pointer-events: none;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
 /* Header placement for logo and title */
+
 .app-header-section {
   display: flex;
   align-items: center;
@@ -64,7 +78,7 @@ html body {
   margin-bottom: 20px;
 }
 
-/*title styling for font size (2.5), bold, color(lime),and shadow (dark red) */
+/*Title styling for font size (2.5), bold, color(lime),and shadow (dark red) */
 .app-title {
   font-size: 3.0rem;
   font-weight: bolder;
@@ -73,97 +87,73 @@ html body {
   text-shadow: 2px 2px 4px rgba(244, 67, 54, 0.4)
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  /* Music Controls*/
 
-.App-link {
-  color: #61dafb;
-}
-
-
-/* Music Button Styling  padding around button areas with background gradient (red to blue) and rounded corners */
+/* Music control paddings and style */
 .music-controls {
   padding: 10px;
   background: linear-gradient(135deg, #393434 0%, #508fb9 100%);
   box-shadow: 0 8px 32px rgba(255, 0, 0, 0.1);
-  border-radius: 12px;
+  border-radius: 12px; 
   margin: 10px;
-  min-height: 140px; /* Consistent height with instrument selection */
-  width: calc(100% - 20px); /* Fill container width minus margins */
-  max-width: 100%;
+  min-height: 140px;
+  min-width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-/* Music button title syling (white, bigger size (2.0), bold) */
+/* Music Controls Title */
 .music-controls h4 {
   color: rgb(255, 255, 255);
   font-weight: 800;
   font-size: 2.0rem;
   text-align: center;
   margin: 0 0 15px 0;
-  
 }
 
+/* Button group spacing */
 .btn-group-custom {
   display: flex;
   gap: 2px;
   justify-content: center;
 }
 
+/* Music Button Base Styling */
 .music-btn {
   padding: 2px;
   border: none;
   border-radius: 0;
-  font-weight: normal;
-  text-transform: none;
-  letter-spacing: normal;
   transition: all 0.3s ease;
   cursor: pointer;
-  min-width: auto;
   font-size: 2.5rem; /* Increased size for the emoji icons */
 }
 
-/* Play button styling - clean icon only */
+/* Play button transparent */
 .music-btn.play-btn {
   background: transparent;
 }
 
-/* Simple hover effect for play button */
+/* hover effect for play button , enlarge on hover */
 .music-btn.play-btn:hover {
   background: transparent;
-  transform: scale(1.1); /* Slightly enlarge on hover */
-  box-shadow: none;
+  transform: scale(1.1);
 }
 
-/* Stop button styling - clean icon only */
+/* Stop button transparent */
 .music-btn.stop-btn {
   background: transparent;
 }
 
-/* Simple hover effect for stop button */
+/* hover effect for stop button */
 .music-btn.stop-btn:hover {
   background: transparent;
-  transform: scale(1.1); /* Slightly enlarge on hover */
-  box-shadow: none;
+  transform: scale(1.1);
+
 }
 
-/* Process & Play button styling - clean icon only */
+/* Process & Play button transparent */
 .music-btn.process-btn {
   background: transparent;
 }
@@ -171,11 +161,10 @@ html body {
 /* Simple hover effect for process & play button */
 .music-btn.process-btn:hover {
   background: transparent;
-  transform: scale(1.1); /* Slightly enlarge on hover */
-  box-shadow: none;
+  transform: scale(1.1);
 }
 
-/* Preprocess button styling - clean icon only */
+/* Preprocess button transparent */
 .music-btn.preprocess-btn {
   background: transparent;
 }
@@ -184,8 +173,14 @@ html body {
 .music-btn.preprocess-btn:hover {
   background: transparent;
   transform: scale(1.1); /* Slightly enlarge on hover */
-  box-shadow: none;
 }
+
+.process-btn:hover {
+  background: transparent;
+  transform: scale(1,1);
+}
+
+/*Instruments*/
 
 /* Drums button styling - clean icon only */
 .music-btn.drums-btn {
@@ -193,74 +188,13 @@ html body {
   font: 2.5rem;
 }
 
-/* Simple hover effect for drums button */
+/* drums btn Hover */
 .music-btn.drums-btn:hover {
   background: transparent;
-  transform: scale(1.1); /* Slightly enlarge on hover */
-  box-shadow: none;
+  transform: scale(1.1);
 }
 
-.process-controls {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.process-btn {
-  padding: 10px 20px;
-  background: transparent;
-  color: #667eea;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.process-btn:hover {
-  background: #ffffff;
-  color: rgb(255, 0, 0);
-  transform: translateY(-1px);
-}
-
-
-.slideContainer {
-  width: 75%;
-  margin-top: 200px
-
-}
-
-
-.slideContainer label {
-  color: white;
-  font-size: 0.7rem;
-  font-weight: 500;
-  white-space: nowrap;
-}
-
-.slider{
-width: 200px;
-height: 15px;
-background: green;
-outline: blue;
-opacity: 0.7;
-transition: opacity 0.3s;
-border-radius: 8px;
-box-shadow: 0px 1px 5px rgba(0,0,0,0.3);
-}
-
-.slider:hover{
-  opacity: 1;
-}
-
-.slider::-webkit-slider-thumb{
-  appearance: none;
-  width: 25px;
-  height: 25px;
-  background: white;
-  cursor: pointer;
-  border-radius: 50%;
-  box-shadow: 0px 0px 5px black;
-}
-
+  /* Form Labels ("Preprocess text" & "Editor & Output")*/
 .form-label {
   font-size: 2.0rem;
   font-weight: bolder;
@@ -270,20 +204,21 @@ box-shadow: 0px 1px 5px rgba(0,0,0,0.3);
   text-align: left;
 }
 
-
+/* Instrument Selection Styling */
 .Instrument-selection {
-  padding: 20px;
+  padding: 10px;
   background: linear-gradient(135deg, #393434 10%, #b04ec1c5 90%);
   box-shadow: 0 8px 32px rgba(255, 0, 0, 0.1);
   border-radius: 12px;
   margin: 10px;
-  min-height: 140px; /* Match music-controls height */
-  min-width: 300px;  /* Ensure consistent width */
+  min-height: 140px;
+  min-width: 300px;  
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
+/* Instrument Title */
 .Instrument-selection h4 {
   color: rgb(255, 255, 255);
   font-weight: 800;
@@ -292,15 +227,17 @@ box-shadow: 0px 1px 5px rgba(0,0,0,0.3);
   margin: 0 0 15px 0;
 }
 
+/*instrument btn group */
 .btn-instrument-group {
   display: flex;
   gap: 15px;
   justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
-  font-size: 1.5rem;
 }
 
+/* Editor & Output Card Styling */
+
+/*Editor Title */
 .editor-container h4{
   font-size: 2.0rem;
   text-align: left;
@@ -310,6 +247,7 @@ box-shadow: 0px 1px 5px rgba(0,0,0,0.3);
   text-shadow: 2px 2px 4px rgba(244, 67, 54, 0.4)
 }
 
+/* Editor Title for collapsed text */
 .editor-card-header h5.TextCollapsed {
   font-size: 2.0rem;
   text-align: left;
@@ -319,16 +257,24 @@ box-shadow: 0px 1px 5px rgba(0,0,0,0.3);
   text-shadow: 2px 2px 4px rgba(244, 67, 54, 0.4);
 }
 
+/* Preprocess Text Container */
+
+/* Preprocess Text Card Styling */
 .PreprocessText-container .card {
     background-color: transparent;
     border: none;
 }
 
+/*Preprocess Text Card Header */
 .PreprocessText-container .card .card-header {
     background-color: transparent;
     border-bottom: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
 }
 
+/* Preprocess Text Card Header */
 .PreprocessText-container .Preprocess-card-header h4 {
     font-size: 2.0rem;
     text-align: left;
@@ -338,31 +284,29 @@ box-shadow: 0px 1px 5px rgba(0,0,0,0.3);
     text-shadow: 2px 2px 4px rgba(244, 67, 54, 0.4);
 }
 
-
+/* * Canvas Container Styling */
 .canvas-container {
   display: flex;
   justify-content: center;
   margin: 20px auto;
-  border: 3px solid var(--border-color);
+  border: 3px solid lime;
   border-radius: 4px;
-  background-color: var(--main-bg-color);
+  background-color: var(--card-bg);
   width: 10%;
 }
 
-/* Save and Upload buttons side by side */
-.save-upload {
-  margin: 20px 0;
-  padding: 5px;
-}
+/* Save and upload buttons container */
 
-.save-upload .col-6 {
+/* Save and Upload button */
+.save-upload {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5px;
+  gap: 10px;
+  margin: 10px;
 }
 
-
+/* File Input Styling */
 #fileInput {
   padding: 10px 10px;
   background-color: transparent;
@@ -372,24 +316,21 @@ box-shadow: 0px 1px 5px rgba(0,0,0,0.3);
 }
 
 
-#fileInput {
-  color: var(--main-text-color);
-}
-
 /* Save and Load Controls Styling */
 .save-load-controls {
-  padding: 20px;
+  padding: 10px;
   background: linear-gradient(135deg, #393434 10%, #f17b27c5 90%);
   box-shadow: 0 8px 32px rgba(255, 0, 0, 0.1);
   border-radius: 12px;
   margin: 10px;
-  min-height: 140px; /* Consistent height with other controls */
-  min-width: 300px;  /* Ensure consistent width */
+  min-height: 140px; 
+  min-width: 300px;  
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
+/* Save and Load Controls Title */
 .save-load-controls h4 {
   color: rgb(255, 255, 255);
   font-weight: 800;
@@ -398,8 +339,7 @@ box-shadow: 0px 1px 5px rgba(0,0,0,0.3);
   margin: 0 0 15px 0;
 }
 
-
-
+/* Save Button */
 .save-btn{
   background: transparent;
   font-size: 2.5rem;

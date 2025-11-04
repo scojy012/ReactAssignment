@@ -1,9 +1,10 @@
+// import the react libarary, useState and useEffect from react
+// import styling from App.css
 import React, { useState, useEffect } from 'react';
 import '../App.css';
-import { ProcAndPlay } from '../App.js'; // Import ProcAndPlay function
+import { ProcAndPlay } from '../App.js'; // Import ProcAndPlay function for re-processing and playing
 
 function InstrumentButtons() {
-
     const [drumsMuted, setDrumsMuted] = useState(false); // State to track if drums are muted
     const toggleDrums = () => {
         setDrumsMuted(!drumsMuted);
@@ -29,6 +30,7 @@ function InstrumentButtons() {
         ProcAndPlay();
     };
 
+    // used ternary operator to display different button content based on drumsMuted state
     return (
         <>
         <div className="Instrument-selection">
