@@ -25,28 +25,39 @@ const handleD3Data = (event) => {
 
 
 export function ProcAndPlay() {
-    if (globalEditor != null && globalEditor.repl.state.started === true) {
-        console.log(globalEditor)
-        Proc()
+    console.log("ProcAndPlay clicked!");
+    
+    if (globalEditor != null) {
+        console.log("globalEditor exists, state:", globalEditor.repl?.state);
+        
+        // First preprocess the text
+        Proc();
+        
+        // Then play it
         globalEditor.evaluate();
+        console.log("ProcAndPlay: Preprocessing and playing completed");
+    } else {
+        console.error("ProcAndPlay: globalEditor is null!");
     }
 }
 export function Proc() {
-
-    let proc_text = document.getElementById('proc').value
-    let proc_text_replaced = proc_text.replaceAll('<p1_Radio>', ProcessText);
-    ProcessText(proc_text);
-    globalEditor.setCode(proc_text_replaced)
-}
-export function ProcessText(match, ...args) {
-
-    let replace = ""
-    const radioElement = document.getElementById('flexRadioDefault2');
-    if (radioElement && radioElement.checked) {
-        replace = "_"
+    console.log("Proc function called");
+    
+    const procElement = document.getElementById('proc');
+    if (!procElement) {
+        console.error("Proc: Cannot find element with id 'proc'");
+        return;
     }
-
-    return replace
+    
+    let proc_text = procElement.value;
+    console.log("Proc: Text from textarea:", proc_text.substring(0, 100) + "...");
+    
+    if (globalEditor) {
+        globalEditor.setCode(proc_text);
+        console.log("Proc: Code set in editor successfully");
+    } else {
+        console.error("Proc: globalEditor is null");
+    }
 }
 
 
@@ -134,7 +145,7 @@ return (
             <div className="container text-center">
                 <div className="row">
                     <div className="col-4">
-                        <PlayButtons onPlay = {handlePlay} onStop={handleStop}/>
+                        <PlayButtons onPlay={handlePlay} onStop={handleStop} onProcessPlay={ProcAndPlay} onProcess={Proc}/>
                     </div>
                     <div className="col-4">
                         <InstrumentButtons/>
