@@ -14,10 +14,8 @@ import logo from './logo.svg'; // Import logo image
 import PreProcessText from './components/PreProcessText'; // Import PreProcessText component
 import Editor from './components/Editor'; // Import Editor component
 import InstrumentButtons from './components/InstrumentButtons'; // Import InstrumentButtons component
-//import SaveTxt from './components/SaveTxt'; // Import SaveTxt component
-//import Upload from './components/Upload'; // Import Upload component
-import CanvasRoll from './components/CanvasRoll';
-import SaveLoad from './components/SaveLoad';
+import CanvasRoll from './components/CanvasRoll'; // Import CanvasRoll component
+import SaveLoad from './components/SaveLoad'; // Import SaveLoad component
 
 let globalEditor = null;
 

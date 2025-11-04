@@ -1,13 +1,19 @@
+// import the React library and useState, useEffect
+// import styling from App.css
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 
+// declare function component Editor
 function Editor() {
-
+// use useState to create a state variable EditorCollapsed and its setter function setEditorCollapsed
     const [EditorCollapsed, setEditorCollapsed] = useState(false);
+    // function to toggle the collapse state
     const toggleCollapse = () => {
         setEditorCollapsed(!EditorCollapsed);
     };
-
+// the EditorCollapsed will control the collapse behavior of the editor section
+// by using the toggleCollapse function on button click
+// used a ternary operator to set the className for collapse behavior
     return (
         <>
             <div className="editor-container" style={{ padding: '20px', margin: '20px 0' }}>

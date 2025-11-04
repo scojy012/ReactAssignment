@@ -34,7 +34,7 @@ function InstrumentButtons() {
         <div className="Instrument-selection">
                 <h4>👾 Instruments 🕹️</h4>
                     <div className="btn-instrument-group" role="group" aria-label="Instrument Selection">
-                            <button className={`btn ${drumsMuted ? '🥁🔇' : '🥁🔊'}`} onClick={toggleDrums}>
+                            <button className="music-btn drums-btn" onClick={toggleDrums} title={drumsMuted ? 'Unmute Drums' : 'Mute Drums'}>
                                 {drumsMuted ? '🥁🔊' : '🥁🔇'}
                             </button>
 
