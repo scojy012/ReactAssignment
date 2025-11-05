@@ -1,9 +1,9 @@
-
+// PreprocessLogic.js for volume adjustment using regex
 export function Preprocess(inputText, volume) {
     let regex = /[a-zA-Z0-9_]+:\s*\n[\s\S]+?\r?\n(?=[a-zA-Z0-9_]*[:\/])/gm;
 
     let m;
-    
+    // Find all matches in the input text
     let matches = [];
     while ((m = regex.exec(inputText)) !== null) {
         if (m.index === regex.lastIndex) {

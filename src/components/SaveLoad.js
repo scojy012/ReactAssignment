@@ -23,7 +23,7 @@ function SaveLoad() {
             if (procElement) {
                 procElement.value = result;
             } else{
-                console.error("Could not find textarea with id 'proc'");
+                console.error("Could not find textarea");
             }
         }
         // read the selected file

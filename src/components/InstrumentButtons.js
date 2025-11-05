@@ -3,13 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 import { ProcAndPlay } from '../App.js'; // Import ProcAndPlay function for re-processing and playing
-
+// Define the InstrumentButtons component with the props volume and onVolumeChange
 function InstrumentButtons({volume, onVolumeChange}) {
-
-    
-
-
-
 
     const [drumsMuted, setDrumsMuted] = useState(false); // State to track if drums are muted
     const toggleDrums = () => {
@@ -41,12 +36,16 @@ function InstrumentButtons({volume, onVolumeChange}) {
         <>
         <div className="Instrument-selection">
                 <h4>👾 Instruments 🕹️</h4>
-                    <div className="btn-instrument-group" role="group" aria-label="Instrument Selection">
+                    <div className="btn-instrument-group" role="group" aria-label="Instrument Selection" style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
                             <button className="music-btn drums-btn" onClick={toggleDrums} title={drumsMuted ? 'Unmute Drums' : 'Mute Drums'}>
                                 {drumsMuted ? '🥁🔊' : '🥁🔇'}
                             </button>
-                            <label className="form-label">Volume</label>
-                            <input type="range" className="form-range volume-slider" min="0" max="2" step="0.1" value={volume} onChange={onVolumeChange} id="volumeSlider"/> 
+                            
+                            <div style={{display: 'flex', alignItems: 'center', gap: '3px'}}>
+                                <span>🔉</span>
+                                <input type="range" className="form-range volume-slider" min="0" max="1" step="0.04" value={volume} onChange={onVolumeChange} id="volumeSlider" style={{width: '150px', margin: '0'}} title="Volume Control"/> 
+                                <span>🔊</span>
+                            </div>
 
                     </div>
         </div>

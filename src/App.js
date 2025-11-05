@@ -55,7 +55,7 @@ export default function StrudelDemo() {
 
     const hasRun = useRef(false);
     const [isDarkMode, setIsDarkMode] = useState(true); // Track theme state
-    const [volume, setVolume] = useState(1); // Track volume state
+    const [volume, setVolume] = useState(0.7); // Track volume state - start at 70% to prevent static sounds
 
     const handlePlay = () => {
         globalEditor.evaluate();
@@ -75,7 +75,7 @@ export default function StrudelDemo() {
 
     const handleVolumeChange = (event) => {
         const newVolume = parseFloat(event.target.value);
-        setVolume(newVolume);
+        setVolume(newVolume); // Update local volume state
         globalVolume = newVolume; // Update global volume
         // Reprocess the text with new volume
         ProcAndPlay();
