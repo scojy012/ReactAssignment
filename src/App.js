@@ -16,48 +16,38 @@ import Editor from './components/Editor'; // Import Editor component
 import InstrumentButtons from './components/InstrumentButtons'; // Import InstrumentButtons component
 import CanvasRoll from './components/CanvasRoll'; // Import CanvasRoll component
 import SaveLoad from './components/SaveLoad'; // Import SaveLoad component
+import { Preprocess } from './components/PreprocessLogic'; // Import Preprocess function
 
 let globalEditor = null;
+let globalVolume = 1;
 
 const handleD3Data = (event) => {
     console.log(event.detail);
 };
 
-
+// Process and Play function for 
 export function ProcAndPlay() {
-    console.log("ProcAndPlay clicked!");
-    
-    if (globalEditor != null) {
-        console.log("globalEditor exists, state:", globalEditor.repl?.state);
-        
-        // First preprocess the text
+    if (globalEditor) {
         Proc();
-        
-        // Then play it
         globalEditor.evaluate();
-        console.log("ProcAndPlay: Preprocessing and playing completed");
-    } else {
-        console.error("ProcAndPlay: globalEditor is null!");
-    }
+    } 
 }
-export function Proc() {
-    console.log("Proc function called");
-    
+
+// Preprocess function to set code in processor
+export function Proc() {    
     const procElement = document.getElementById('proc');
     if (!procElement) {
-        console.error("Proc: Cannot find element with id 'proc'");
         return;
     }
     
     let proc_text = procElement.value;
-    console.log("Proc: Text from textarea:", proc_text.substring(0, 100) + "...");
+    
+    // Apply volume preprocessing
+    let processedText = Preprocess(proc_text, globalVolume);
     
     if (globalEditor) {
-        globalEditor.setCode(proc_text);
-        console.log("Proc: Code set in editor successfully");
-    } else {
-        console.error("Proc: globalEditor is null");
-    }
+        globalEditor.setCode(processedText);
+    } 
 }
 
 
@@ -65,6 +55,7 @@ export default function StrudelDemo() {
 
     const hasRun = useRef(false);
     const [isDarkMode, setIsDarkMode] = useState(true); // Track theme state
+    const [volume, setVolume] = useState(1); // Track volume state
 
     const handlePlay = () => {
         globalEditor.evaluate();
@@ -82,6 +73,14 @@ export default function StrudelDemo() {
         }
     }
 
+    const handleVolumeChange = (event) => {
+        const newVolume = parseFloat(event.target.value);
+        setVolume(newVolume);
+        globalVolume = newVolume; // Update global volume
+        // Reprocess the text with new volume
+        ProcAndPlay();
+    }
+
     const [songText, setSongText] = useState(stranger_tune);
 
 useEffect(() => {
@@ -89,6 +88,7 @@ useEffect(() => {
     if (!hasRun.current) {
         document.addEventListener("d3Data", handleD3Data);
         console_monkey_patch();
+        globalVolume = volume; // Initialize global volume
         hasRun.current = true;
         
         // Initialize theme - default to dark mode
@@ -125,13 +125,14 @@ useEffect(() => {
             });
             
         document.getElementById('proc').value = stranger_tune
-        //SetupButtons()
-        //Proc()
+        
     }
 
             globalEditor.setCode(songText);
 }, [songText]);
 
+
+// Main return for the App component containing components and layout (PlayButtons, InstrumentButtons, SaveLoad, PreProcessText, Editor, CanvasRoll)
 return (
     <div className="app-container p-3 mb-2"> 
         <div className="app-header-section">
@@ -148,7 +149,7 @@ return (
                         <PlayButtons onPlay={handlePlay} onStop={handleStop} onProcessPlay={ProcAndPlay} onProcess={Proc}/>
                     </div>
                     <div className="col-4">
-                        <InstrumentButtons/>
+                        <InstrumentButtons volume={volume} onVolumeChange={handleVolumeChange}/>
                     </div>
                     <div className="col-4">
                         <SaveLoad/>

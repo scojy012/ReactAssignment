@@ -4,7 +4,13 @@ import React, { useState, useEffect } from 'react';
 import '../App.css';
 import { ProcAndPlay } from '../App.js'; // Import ProcAndPlay function for re-processing and playing
 
-function InstrumentButtons() {
+function InstrumentButtons({volume, onVolumeChange}) {
+
+    
+
+
+
+
     const [drumsMuted, setDrumsMuted] = useState(false); // State to track if drums are muted
     const toggleDrums = () => {
         setDrumsMuted(!drumsMuted);
@@ -39,6 +45,8 @@ function InstrumentButtons() {
                             <button className="music-btn drums-btn" onClick={toggleDrums} title={drumsMuted ? 'Unmute Drums' : 'Mute Drums'}>
                                 {drumsMuted ? '🥁🔊' : '🥁🔇'}
                             </button>
+                            <label className="form-label">Volume</label>
+                            <input type="range" className="form-range volume-slider" min="0" max="2" step="0.1" value={volume} onChange={onVolumeChange} id="volumeSlider"/> 
 
                     </div>
         </div>
