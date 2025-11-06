@@ -27,7 +27,7 @@ The project implements new interactive features to enhance usability, control ad
 - Any text that is typed or changed in the preprocess text area is immediately updated in the Editor & Output area
 
 ## Demonstration video
-Watch the full feature demonstration: 
+Watch the full feature demonstration: https://youtu.be/hGA7qcZ9pJM 
 
 
 # Getting Started with Create React App
