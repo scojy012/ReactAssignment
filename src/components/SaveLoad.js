@@ -18,7 +18,7 @@ function SaveLoad() {
         reader.onload = function(e) {
             console.log(e);
             var result = e.target.result;  // use the raw file content directly not use JSON stringify
-            const procElement = document.getElementById("proc"); // locate the textarea with id="proc" to save the content
+            const procElement = document.getElementById("proc"); // locate the textarea with id="proc" to load the content into it
            // check if procElement exists before setting value
             if (procElement) {
                 procElement.value = result;
