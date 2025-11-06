@@ -1,3 +1,32 @@
+Strudel Music Features -Custom Features
+
+The features contain:
+1. Light/Dark mode
+
+  
+2. Mute/Umute Instrutment for drums and drums2
+
+   
+3. Volume Slider
+
+   
+4. File upload of the preprocess text area
+
+   
+5. Save preprocess text area
+
+    
+6. Collabibsle Preprocess Text Area and Editor
+   
+7. Live changes/syncrhonization in the preprocess & editor
+   Created a onChange handler and is passed from App.js
+   The songText state is used in a useEffect that calls globalEditor.setCode(songText)
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
