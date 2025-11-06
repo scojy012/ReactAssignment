@@ -1,30 +1,33 @@
-Strudel Music Features -Custom Features
+## Strudel Music Features
+The project implements new interactive features to enhance usability, control adjustments and process. It contains various UI improvements aswell with addition to ehancing a more engaging music experience.
 
-The features contain:
 1. Light/Dark mode
-
+- Toggles between dark mode and light mode.
+- Changing the background from dark grey to white better for readability and comfort.
   
-2. Mute/Umute Instrutment for drums and drums2
-
-   
-3. Volume Slider
-
-   
+2. Mute & Umute drums and drums2
+- Allow users to control the playback of the music with drum instrument (drums and drums2).
+- Toggles between muted and unmuted states.
+  
+3. Volume Control
+- Created a slider to adjust the overall sound volume.
+- providing real-time control over the playback loudness of the song.
+  
 4. File upload of the preprocess text area
+- Users can upload a text file directly to the preprocess text area.
 
-   
 5. Save preprocess text area
-
-    
-6. Collabibsle Preprocess Text Area and Editor
+- Saves the content from the preprocess text area as a downloadable text file.
+- Executred by retrieving the proc id and export as .txt.
+  
+6. Collapse Preprocess Text Area and Editor
+- Click on the subheading "Preprocess Text" or "Editor & Output" to collapse sections or expand
    
-7. Live changes/syncrhonization in the preprocess & editor
-   Created a onChange handler and is passed from App.js
-   The songText state is used in a useEffect that calls globalEditor.setCode(songText)
+7. Live changes/syncrhonization between the preprocess & editor- 
+- Any text that is typed or changed in the preprocess text area is immediately updated in the Editor & Output area
 
-
-
-
+## Demonstration video
+Watch the full feature demonstration: 
 
 
 # Getting Started with Create React App
